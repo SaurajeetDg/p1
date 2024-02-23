@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page | project1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="row">
+        <div class="col1">
+            <h1>.ZER|esports.</h1>
+            <img id="changeimage" src="images/mainimage.png" alt="">
+            <h2>Sharing Product</h2>
+            <!-- <br> -->
+            <h5>Now Share Your Favourite Product <br>to Earn Cashback</h5>
+        </div>
+        <div class="col2">
+            <div class="top">
+                <img src="images/globe-solid.svg" alt="" height="12px">
+                <!-- <h6>Eng</h6> -->
+                <select>
+                    <option value="french">Eng</option>
+                    <option value="german">German</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="english">French</option>
+                </select>
+                <a href="#" id="sign-in">Sign In</a>
+            </div>
+            <br><br><br><br>
+            <div class="form" onsubmit="return validateform()">
+                    <h4 id="hide1">Sign Up NOW</h4>
+                <br>
+                <form name="myForms">
+                <h1 id="cb">Create Business</h1><br>
+                <h4 id="hide2">Create Your business Profile </h4><br>
+                <label > Business Name *</label><br>
+                <!-- <div class="form1" > -->
+                <input id="bname" type="text" name="business name" placeholder="business name"> <span id="errorname"></span>
+                <!-- </div> -->
+                <br><br>
+                <label> Business Email*</label><br>
+                <input id="bemail" type="text" name="business email" placeholder="sales@business.co.au"> <span id="errormail"></span> 
+                <br><br>
+                <div id="hide3">
+                <label> Contact number*</label><br>
+                <input type="number" name="Contact number" placeholder="67823*****">
+                <br><br>
+                <label> Password*</label><br>
+                <input type="password" name="password" placeholder="password">
+                </div>
+                <p><h6>This information will be securely saved as per <br>the <i>Terms of Service & <u>Privacy Policy</u> </i></h6></p>
+                <input type="submit">
+            </div>
+            <div class="endbutton">
+                <div class="eb1">
+                    <a href="#">Help?</a>
+                </div>
+                <div class="eb2">
+                    <a  href="#" method="post">Sign Up NOW</a>
+                </div>
+            </div>
+            </form>
+            <br><br>
+            <div class="endbtn2" id="endbtn">
+                <p> Don't have an account?</p><br>
+                <a href="#" id="signup">Sign Up for FREE</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let signin =document.getElementById("sign-in");
+        let cb =document.getElementById("cb");
+        let hide1=document.getElementById("hide1");
+        let hide2=document.getElementById("hide2");
+        let changeimage=document.getElementById("changeimage");
+        let cb2 =document.getElementById("cb2");
+        let endbtn =document.getElementById("endbtn");
+        let signup=document.getElementById("signup");
+        let hide3=document.getElementById("hide3");
+        signin.onclick=function(){
+            cb.innerHTML="Sign In to your Business"
+            signin.style.display="none"
+            // signin.style.backgroundColor="lightgray"
+            hide1.innerHTML=""
+            hide2.innerHTML=""
+            changeimage.src="images/welcome-back.png"
+            changeimage.style.padding="35px"
+            cb2.innerHTML="LogIn"
+            cb2.style.background="linear-gradient(pink,red )"
+            endbtn.style.display="contents"
+            hide3.style.display="none"
+
+        }
+        // signin.onclick=function(){
+        //     signin.innerHTML="Sign In"
+        signup.onclick=function(){
+            cb.innerHTML="Create Business"
+            signin.style.display="initial"
+            // signin.style.backgroundColor="lightgray"
+            hide1.innerHTML="Step 01/04"
+            hide2.innerHTML="Create Your business Profile"
+            changeimage.src="images/mainimage.png"
+            // changeimage.style.padding="35px"
+            cb2.innerHTML="Sign Up NOW"
+            endbtn.style.display="none"
+            cb2.style.background="darkolivegreen"
+            hide3.style.display="initial"
+        }
+        // cb2.onclick=return validateform(){};
+            
+        
+
+        // function seterror(id,error){
+        //     element=document.getElementById(id);
+        //     element.getElementsByClassName('formerror')[0].innerHTML=error;
+        // }
+
+        function validateform(){
+            // alert('running');
+            // var returnval=true;
+            // var name=document.forms["myForms"]["bname"].value;
+            // if(name.length<5){
+            //     seterror("bname", "length of name is too Short");
+            // returnval=false;
+            var name=document.getElementById('bname').value;
+            var bname=document.getElementById('bname');
+            var email=document.getElementById('bemail').value;   
+            var errorname=document.getElementById('errorname');
+            var errormail=document.getElementById('errormail');
+            if(name.length<5){
+                errorname.innerHTML="enter a valid name of more than 5 letters"
+                // bname.style.backgroundColor=red;
+                return false;
+            } 
+            if(email.indexOf("@") == -1){
+                errormail.innerHTML="enter a valid email address"
+                return false;
+            }
+            else{
+                alert("form submitted successfully")
+            }
+            return true;
+        }
+    // }
+    </script>
+</body>
+</html>
